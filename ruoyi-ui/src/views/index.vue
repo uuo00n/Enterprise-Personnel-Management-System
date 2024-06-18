@@ -13,18 +13,18 @@
           <el-button
             type="primary"
             size="mini"
-            icon="el-icon-cloudy"
+            icon="el-icon-takeaway-box"
             plain
-            @click="goTarget('https://gitee.com/y_project/RuoYi-Vue')"
-          >访问码云
+            @click="goTarget('https://gitee.com/huang-junbo/Enterprise-Personnel-Management-System')"
+          >访问源码仓库
           </el-button
           >
           <el-button
             size="mini"
-            icon="el-icon-s-home"
+            icon="el-icon-link"
             plain
-            @click="goTarget('http://ruoyi.vip')"
-          >访问主页
+            @click="goTarget('http://120.46.212.36/')"
+          >访问作者博客
           </el-button
           >
         </p>
