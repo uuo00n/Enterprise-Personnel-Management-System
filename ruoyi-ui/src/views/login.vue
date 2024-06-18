@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <h2 class="title">SIN人员管理系统</h2>
+      <h2 class="title">Sin人员管理系统</h2>
       <h4 class="title">Sin-Enterprise-Personnel-Management-System</h4>
       <el-form-item prop="username">
         <el-input
