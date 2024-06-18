@@ -6,6 +6,7 @@ spring:
         druid:
             # 主库数据源
             master:
+            # 配置url
                 url: jdbc:mysql://localhost:3306/ry-vue
                 username: root
                 password: 123456
