@@ -1,7 +1,8 @@
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <h3 class="title">若依后台管理系统</h3>
+      <h2 class="title">SIN人员管理系统</h2>
+      <h4 class="title">Sin-Enterprise-Personnel-Management-System</h4>
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -56,7 +57,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2018-2024 ruoyi.vip All Rights Reserved.</span>
+      <span>Copyright © 2018-2024 sasioverlxrd.cn All Rights Reserved.</span>
     </div>
   </div>
 </template>
