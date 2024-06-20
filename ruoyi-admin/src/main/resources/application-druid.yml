@@ -7,9 +7,9 @@ spring:
             # 主库数据源
             master:
             # 配置url
-                url: jdbc:mysql://localhost:3306/ry-vue
-                username: root
-                password: 123456
+                url: jdbc:mysql://120.46.212.36:3306/ry-vue
+                username: ry-vue
+                password: huang1107
             # 从库数据源
             slave:
                 # 从数据源开关/默认关闭
