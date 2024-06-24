@@ -74,7 +74,7 @@
         </el-row>
       </el-col>
     </el-row>
-
+    <el-divider/>
     <el-row :gutter="20">
       <el-col :xs="24" :sm="24" :md="12" :lg="8">
         <el-card class="update-log">
@@ -128,7 +128,7 @@
                                                                                   alt="Fastjson" height="50"
               ></a>
             </p>
-            <i class="el-icon-s-tools"></i>开发工具
+            <i class="el-icon-cpu"></i>开发工具
             <p>
               <a href="https://gitee.com/" target="_blank"><img style="margin: 10px"
                                                                 src="https://www.svgrepo.com/show/330508/gitee.svg"
@@ -162,14 +162,22 @@
           </div>
         </el-card>
       </el-col>
-
-
+      <el-col :xs="48" :sm="48" :md="24" :lg="16">
+        <el-card class="update-log">
+          <div slot="header" class="clearfix">
+            <span>成员分布</span>
+          </div>
+          <div class="body">
+            <div ref="chart" style="width: 100%; height: 412px;"></div>
+          </div>
+        </el-card>
+      </el-col>
     </el-row>
-    <el-divider/>
   </div>
 </template>
 
 <script>
+import * as echarts from 'echarts';
 
 export default {
   name: 'Index',
@@ -179,13 +187,53 @@ export default {
       version: '3.8.7'
     }
   },
-  created() {
-    this.getList()
-    this.openLoading()
+  mounted () {
+    this.setCharts()
   },
   methods: {
     goTarget(href) {
       window.open(href, '_blank')
+    },
+    setCharts(){
+      var chartDom = this.$refs.chart;
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: 'Sin-人员管理系统开发小组',
+          subtext: '开发人员分布',
+          left: 'center'
+        },
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left'
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie',
+            radius: '50%',
+            data: [
+              { value: 3, name: '数据库开发' },
+              { value: 2, name: '前端开发' },
+              { value: 3, name: '后端开发' },
+              { value: 5, name: '软件测试' }
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }
+        ]
+      };
+      option && myChart.setOption(option);
     }
   }
 }
