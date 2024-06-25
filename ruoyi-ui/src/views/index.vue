@@ -218,7 +218,7 @@ export default {
             type: 'pie',
             radius: '50%',
             data: [
-              { value: 3, name: '数据库开发' },
+              { value: 3, name: '数据库设计' },
               { value: 2, name: '前端开发' },
               { value: 3, name: '后端开发' },
               { value: 5, name: '软件测试' }
