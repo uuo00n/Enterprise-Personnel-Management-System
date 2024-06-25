@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysProjectMapper">
+    
+    <resultMap type="SysProject" id="SysProjectResult">
+        <result property="projectId"    column="project_id"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="leaderId"    column="leader_id"    />
+        <result property="startDate"    column="start_date"    />
+        <result property="endDate"    column="end_date"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysProjectVo">
+        select project_id, project_name, leader_id, start_date, end_date, status, create_by, create_time, update_by, update_time, remark from sys_project
+    </sql>
+
+    <select id="selectSysProjectList" parameterType="SysProject" resultMap="SysProjectResult">
+        <include refid="selectSysProjectVo"/>
+        <where>  
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
+            <if test="leaderId != null "> and leader_id = #{leaderId}</if>
+            <if test="startDate != null "> and start_date = #{startDate}</if>
+            <if test="endDate != null "> and end_date = #{endDate}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysProjectByProjectId" parameterType="Long" resultMap="SysProjectResult">
+        <include refid="selectSysProjectVo"/>
+        where project_id = #{projectId}
+    </select>
+
+    <insert id="insertSysProject" parameterType="SysProject" useGeneratedKeys="true" keyProperty="projectId">
+        insert into sys_project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="projectName != null and projectName != ''">project_name,</if>
+            <if test="leaderId != null">leader_id,</if>
+            <if test="startDate != null">start_date,</if>
+            <if test="endDate != null">end_date,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="projectName != null and projectName != ''">#{projectName},</if>
+            <if test="leaderId != null">#{leaderId},</if>
+            <if test="startDate != null">#{startDate},</if>
+            <if test="endDate != null">#{endDate},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysProject" parameterType="SysProject">
+        update sys_project
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="projectName != null and projectName != ''">project_name = #{projectName},</if>
+            <if test="leaderId != null">leader_id = #{leaderId},</if>
+            <if test="startDate != null">start_date = #{startDate},</if>
+            <if test="endDate != null">end_date = #{endDate},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where project_id = #{projectId}
+    </update>
+
+    <delete id="deleteSysProjectByProjectId" parameterType="Long">
+        delete from sys_project where project_id = #{projectId}
+    </delete>
+
+    <delete id="deleteSysProjectByProjectIds" parameterType="String">
+        delete from sys_project where project_id in 
+        <foreach item="projectId" collection="array" open="(" separator="," close=")">
+            #{projectId}
+        </foreach>
+    </delete>
+</mapper>
