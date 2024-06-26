@@ -9,6 +9,14 @@ export function listUser(query) {
     params: query
   })
 }
+// 查询所有用户
+export function listAllUser(query) {
+  return request({
+    url: '/system/user/listall',
+    method: 'get',
+    params: query
+  })
+}
 
 // 查询用户详细
 export function getUser(userId) {
@@ -133,3 +141,4 @@ export function deptTreeSelect() {
     method: 'get'
   })
 }
+

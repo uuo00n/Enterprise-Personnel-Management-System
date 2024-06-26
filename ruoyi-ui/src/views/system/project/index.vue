@@ -18,12 +18,14 @@
         />
       </el-form-item>
       <el-form-item label="负责人" prop="leaderId">
-        <el-input
-          v-model="queryParams.leaderId"
-          placeholder="请输入项目负责人"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-select v-model="queryParams.leaderId" placeholder="请选择负责人" clearable>
+          <el-option
+            v-for="user in userList"
+            :key="user.userId"
+            :label="user.userName"
+            :value="user.userId"
+          />
+        </el-select>
       </el-form-item>
       <el-form-item label="开始日期" prop="startDate">
         <el-date-picker clearable
@@ -158,8 +160,15 @@
         <el-form-item label="项目名称" prop="projectName">
           <el-input v-model="form.projectName" placeholder="请输入项目名称" />
         </el-form-item>
-        <el-form-item label="项目负责人ID" prop="leaderId">
-          <el-input v-model="form.leaderId" placeholder="请输入项目负责人ID" />
+        <el-form-item label="负责人" prop="leaderId">
+          <el-select v-model="queryParams.leaderId" placeholder="请选择负责人" clearable>
+            <el-option
+              v-for="user in userList"
+              :key="user.userId"
+              :label="user.userName"
+              :value="user.userId"
+            />
+          </el-select>
         </el-form-item>
         <el-form-item label="开始日期" prop="startDate">
           <el-date-picker clearable
@@ -200,7 +209,7 @@
 
 <script>
 import { listProject, getProject, delProject, addProject, updateProject } from "@/api/system/project";
-
+import {listAllUser} from "@/api/system/user";
 export default {
   name: "Project",
   dicts: ['sys_project_status'],
@@ -245,13 +254,23 @@ export default {
         leaderId: [
           { required: true, message: "项目负责人ID不能为空", trigger: "blur" }
         ],
-      }
+      },
+      userList:[]
     };
   },
   created() {
     this.getList();
+    this.getAllUser()
   },
   methods: {
+    getAllUser(){
+      this.loading = true;
+      listAllUser().then(response => {
+        this.userList = response.rows;
+        this.loading = false;
+        console.log(response)
+      });
+    },
     /** 查询项目管理列表 */
     getList() {
       this.loading = true;
