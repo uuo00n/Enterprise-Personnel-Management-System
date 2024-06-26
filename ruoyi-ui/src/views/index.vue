@@ -16,8 +16,17 @@
             size="mini"
             icon="el-icon-takeaway-box"
             plain
+            @click="goTarget('https://github.com/uuo00n/Enterprise-Personnel-Management-System')"
+          >访问github仓库
+          </el-button
+          >
+          <el-button
+            type="primary"
+            size="mini"
+            icon="el-icon-takeaway-box"
+            plain
             @click="goTarget('https://gitee.com/huang-junbo/Enterprise-Personnel-Management-System')"
-          >访问源码仓库
+          >访问gitee仓库
           </el-button
           >
           <el-button
@@ -177,7 +186,7 @@
 </template>
 
 <script>
-import * as echarts from 'echarts';
+import * as echarts from 'echarts'
 
 export default {
   name: 'Index',
@@ -187,17 +196,17 @@ export default {
       version: '3.8.7'
     }
   },
-  mounted () {
+  mounted() {
     this.setCharts()
   },
   methods: {
     goTarget(href) {
       window.open(href, '_blank')
     },
-    setCharts(){
-      var chartDom = this.$refs.chart;
-      var myChart = echarts.init(chartDom);
-      var option;
+    setCharts() {
+      var chartDom = this.$refs.chart
+      var myChart = echarts.init(chartDom)
+      var option
 
       option = {
         title: {
@@ -232,8 +241,8 @@ export default {
             }
           }
         ]
-      };
-      option && myChart.setOption(option);
+      }
+      option && myChart.setOption(option)
     }
   }
 }
