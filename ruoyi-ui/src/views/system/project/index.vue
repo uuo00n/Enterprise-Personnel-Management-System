@@ -107,7 +107,7 @@
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="项目ID" align="center" prop="projectId" />
       <el-table-column label="项目名称" align="center" prop="projectName" />
-      <el-table-column label="项目负责人ID" align="center" prop="leaderId" />
+      <el-table-column label="项目负责人ID" align="center" prop="leaderName" />
       <el-table-column label="开始日期" align="center" prop="startDate" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.startDate, '{y}-{m}-{d}') }}</span>
@@ -143,7 +143,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"

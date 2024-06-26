@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.system.mapper.SysProjectMapper">
     
-    <resultMap type="SysProject" id="SysProjectResult">
+    <resultMap type="SysProjectVo" id="SysProjectResult">
         <result property="projectId"    column="project_id"    />
         <result property="projectName"    column="project_name"    />
         <result property="leaderId"    column="leader_id"    />
@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateBy"    column="update_by"    />
         <result property="updateTime"    column="update_time"    />
         <result property="remark"    column="remark"    />
+        <result property="leaderName"    column="user_name"    />
     </resultMap>
 
     <sql id="selectSysProjectVo">
@@ -23,7 +24,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </sql>
 
     <select id="selectSysProjectList" parameterType="SysProject" resultMap="SysProjectResult">
-        <include refid="selectSysProjectVo"/>
+<!--        <include refid="selectSysProjectVo"/>-->
+        select project_id, project_name, leader_id, start_date, end_date ,sys_project.`status`, sys_project.create_by, sys_project.create_time, sys_project.update_by, sys_project.update_time, sys_project.remark,user_name from sys_project
+        LEFT JOIN sys_user on sys_project.leader_id = sys_user.user_id
         <where>  
             <if test="projectId != null "> and project_id = #{projectId}</if>
             <if test="projectName != null  and projectName != ''"> and project_name like concat('%', #{projectName}, '%')</if>
