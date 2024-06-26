@@ -29,18 +29,18 @@
       </el-form-item>
       <el-form-item label="开始日期" prop="startDate">
         <el-date-picker clearable
-          v-model="queryParams.startDate"
-          type="date"
-          value-format="yyyy-MM-dd"
-          placeholder="请选择开始日期">
+                        v-model="queryParams.startDate"
+                        type="date"
+                        value-format="yyyy-MM-dd"
+                        placeholder="请选择开始日期">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="结束日期" prop="endDate">
         <el-date-picker clearable
-          v-model="queryParams.endDate"
-          type="date"
-          value-format="yyyy-MM-dd"
-          placeholder="请选择结束日期">
+                        v-model="queryParams.endDate"
+                        type="date"
+                        value-format="yyyy-MM-dd"
+                        placeholder="请选择结束日期">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="项目状态" prop="status">
@@ -161,7 +161,7 @@
           <el-input v-model="form.projectName" placeholder="请输入项目名称" />
         </el-form-item>
         <el-form-item label="负责人" prop="leaderId">
-          <el-select v-model="queryParams.leaderId" placeholder="请选择负责人" clearable>
+          <el-select v-model="form.leaderId" placeholder="请选择负责人" clearable>
             <el-option
               v-for="user in userList"
               :key="user.userId"
@@ -172,18 +172,18 @@
         </el-form-item>
         <el-form-item label="开始日期" prop="startDate">
           <el-date-picker clearable
-            v-model="form.startDate"
-            type="date"
-            value-format="yyyy-MM-dd"
-            placeholder="请选择开始日期">
+                          v-model="form.startDate"
+                          type="date"
+                          value-format="yyyy-MM-dd"
+                          placeholder="请选择开始日期">
           </el-date-picker>
         </el-form-item>
         <el-form-item label="结束日期" prop="endDate">
           <el-date-picker clearable
-            v-model="form.endDate"
-            type="date"
-            value-format="yyyy-MM-dd"
-            placeholder="请选择结束日期">
+                          v-model="form.endDate"
+                          type="date"
+                          value-format="yyyy-MM-dd"
+                          placeholder="请选择结束日期">
           </el-date-picker>
         </el-form-item>
         <el-form-item label="项目状态" prop="status">
@@ -252,7 +252,7 @@ export default {
           { required: true, message: "项目名称不能为空", trigger: "blur" }
         ],
         leaderId: [
-          { required: true, message: "项目负责人ID不能为空", trigger: "blur" }
+          { required: true, message: "项目负责人ID不能为空", trigger: "change" }
         ],
       },
       userList:[]
@@ -263,7 +263,7 @@ export default {
     this.getAllUser()
   },
   methods: {
-    getAllUser(){
+    getAllUser() {
       this.loading = true;
       listAllUser().then(response => {
         this.userList = response.rows;
@@ -315,7 +315,7 @@ export default {
     // 多选框选中数据
     handleSelectionChange(selection) {
       this.ids = selection.map(item => item.projectId)
-      this.single = selection.length!==1
+      this.single = selection.length !== 1
       this.multiple = !selection.length
     },
     /** 新增按钮操作 */
@@ -362,7 +362,8 @@ export default {
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
-      }).catch(() => {});
+      }).catch(() => {
+      });
     },
     /** 导出按钮操作 */
     handleExport() {
