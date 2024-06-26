@@ -74,3 +74,16 @@ Sin人员管理系统是一款基于若依框架并融合二次创作的综合�
 * 项目信息表
   <h3 align="center">表结构图</h3>
   <img src="/demoimages/sin-sql.png">
+
+## 演示图
+
+<table>
+  <tr>
+    <td><img src="/demoimages/login.png"></td>
+    <td><img src="/demoimages/index.png"></td>
+  </tr>
+  <tr>
+    <td><img src="/demoimages/prj.png"></td>
+    <td><img src="/demoimages/user.png"></td>
+  </tr>
+</table>
