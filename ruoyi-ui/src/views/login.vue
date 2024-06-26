@@ -57,7 +57,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2018-2024 sasioverlxrd.cn All Rights Reserved.</span>
+      <span>Copyright © 2018-2024 <a href="https://github.com/uuo00n">huangjunbo</a> All Rights Reserved.</span>
     </div>
   </div>
 </template>
