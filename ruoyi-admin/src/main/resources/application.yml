@@ -67,18 +67,14 @@ spring:
       enabled: true
   # redis 配置
   redis:
-    # 远程redis地址
-    host: 120.46.212.36
     # 本地redis地址
-#    host: 127.0.0.1
+    host: 127.0.0.1
     # 端口，默认为6379
     port: 6379
     # 数据库索引
     database: 0
-    # 远程redis密码
-    password: hjb666
-    # 远程redis密码（默认是无密码）
-#    password:
+    # redis密码
+    password:
     # 连接超时时间
     timeout: 10s
     lettuce:
