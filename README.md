@@ -11,9 +11,10 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/uuo00n/Enterprise-Personnel-Management-System/blob/master/LICENSE)
 [![使用IntelliJ IDEA开发维护](https://img.shields.io/badge/IntelliJ%20IDEA-提供支持-blue.svg)](https://www.jetbrains.com)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7-blue.svg)]()
-[![JDK-8+](https://img.shields.io/badge/JDK-8-green.svg)]()
-[![mysql-5.7](https://img.shields.io/badge/MySql-5.7-green.svg)]()
-[![redis-3.0.504](https://img.shields.io/badge/redis-3.0.504-green.svg)]()
+[![node.js-20.10.0](https://img.shields.io/badge/node.js-20.10.0-green.svg)](https://nodejs.org/en)
+[![JDK-8+](https://img.shields.io/badge/JDK-1.8-green.svg)](https://www.oracle.com/cn/java/technologies/downloads/)
+[![mysql-5.7](https://img.shields.io/badge/MySql-5.7-green.svg)](https://www.mysql.com/cn/)
+[![redis-3.0.504](https://img.shields.io/badge/redis-3.0.504-green.svg)](https://redis.io/)
 
 </div>
 
