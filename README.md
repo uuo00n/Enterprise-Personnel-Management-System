@@ -5,6 +5,13 @@
 <h4 align="center">基于RuoYi v3.8.7</h4>
 <h4 align="center">Sin人员管理系统是一款基于若依框架并融合二次创作的综合性平台</h4>
 
+[![Static Badge](https://img.shields.io/badge/Prod%20by%20uuo00n-8A2BE2?style=flat)](https://github.com/uuo00n)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/uuo00n/Enterprise-Personnel-Management-System/blob/master/LICENSE)
+[![使用IntelliJ IDEA开发维护](https://img.shields.io/badge/IntelliJ%20IDEA-提供支持-blue.svg)](https://www.jetbrains.com)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7-blue.svg)]()
+[![JDK-8+](https://img.shields.io/badge/JDK-8-green.svg)]()
+[![mysql-5.7](https://img.shields.io/badge/MySql-5.7-green.svg)]()
+[![redis-3.0.504](https://img.shields.io/badge/redis-3.0.504-green.svg)]()
 ## 平台简介
 
 Sin人员管理系统是一款基于若依框架并融合二次创作的综合性平台，集成了多种人力资源管理功能，旨在帮助企业和组织有效管理员工信息、优化人力资源流程、提升工作效率。该系统通过自动化和数字化手段，简化了从员工入职到离职的整个流程，减少了管理成本，并提供了准确、实时的数据支持决策。
