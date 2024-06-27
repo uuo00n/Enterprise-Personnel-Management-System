@@ -18,7 +18,7 @@
         />
       </el-form-item>
       <el-form-item label="负责人" prop="leaderId">
-        <el-select v-model="queryParams.leaderId" placeholder="请选择负责人" clearable>
+        <el-select v-model="queryParams.leaderId" placeholder="请选择负责人" clearable filterable>
           <el-option
             v-for="user in userList"
             :key="user.userId"
@@ -161,7 +161,7 @@
           <el-input v-model="form.projectName" placeholder="请输入项目名称" />
         </el-form-item>
         <el-form-item label="负责人" prop="leaderId">
-          <el-select v-model="form.leaderId" placeholder="请选择负责人" clearable>
+          <el-select v-model="form.leaderId" placeholder="请选择负责人" clearable filterable>
             <el-option
               v-for="user in userList"
               :key="user.userId"
@@ -252,7 +252,7 @@ export default {
           { required: true, message: "项目名称不能为空", trigger: "blur" }
         ],
         leaderId: [
-          { required: true, message: "项目负责人ID不能为空", trigger: "change" }
+          { required: true, message: "项目负责人不能为空", trigger: "change" }
         ],
       },
       userList:[]
